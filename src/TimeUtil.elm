@@ -19,6 +19,25 @@ module TimeUtil exposing
     )
 
 {-| Utilities we use to format times / dates wraps Time.Extra and other funzies.
+
+@docs DateFormat
+@docs dateTimeFormat
+@docs defaultDateFormat
+@docs difference
+@docs encodePosix
+@docs format
+@docs formatDate
+@docs formatDate_
+@docs isSameDay
+@docs localToUtc
+@docs posixDecoder
+@docs setNoon
+@docs shortDateFormat
+@docs shortTimeFormat
+@docs stringFormatToStrftimeFormats
+@docs timeAttrFormat
+@docs utcToLocal
+
 -}
 
 import Duration exposing (Duration)
@@ -91,6 +110,7 @@ defaultDateFormat =
     { date = "%-m/%-d/%y", time = "%-I:%M %p" }
 
 
+{-| -}
 type alias DateFormat =
     { date : String
     , time : String
