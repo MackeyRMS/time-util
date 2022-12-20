@@ -1,45 +1,30 @@
 module TimeUtil exposing
     ( DateFormat
-    , dateTimeFormat
-    , defaultDateFormat
-    , difference
-    , encodePosix
-    , format
-    , formatDate
-    , formatDate_
-    , isSameDay
-    , localToUtc
-    , posixDecoder
+    , dateTimeFormat, defaultDateFormat
+    , encodePosix, posixDecoder, posixCodec
+    , format, formatDate, formatDate_
+    , shortDateFormat, shortTimeFormat, timeAttrFormat
+    , isSameDay, difference
+    , localToUtc, utcToLocal
     , setNoon
-    , shortDateFormat
-    , shortTimeFormat
     , stringFormatToStrftimeFormats
-    , timeAttrFormat
-    , utcToLocal
     )
 
 {-| Utilities we use to format times / dates wraps Time.Extra and other funzies.
 
 @docs DateFormat
-@docs dateTimeFormat
-@docs defaultDateFormat
-@docs difference
-@docs encodePosix
-@docs format
-@docs formatDate
-@docs formatDate_
-@docs isSameDay
-@docs localToUtc
-@docs posixDecoder
+@docs dateTimeFormat, defaultDateFormat
+@docs encodePosix, posixDecoder, posixCodec
+@docs format, formatDate, formatDate_
+@docs shortDateFormat, shortTimeFormat, timeAttrFormat
+@docs isSameDay, difference
+@docs localToUtc, utcToLocal
 @docs setNoon
-@docs shortDateFormat
-@docs shortTimeFormat
 @docs stringFormatToStrftimeFormats
-@docs timeAttrFormat
-@docs utcToLocal
 
 -}
 
+import Codec exposing (Codec)
 import Duration exposing (Duration)
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
@@ -178,6 +163,12 @@ posixDecoder =
 encodePosix : Posix -> Encode.Value
 encodePosix =
     Time.posixToMillis >> Encode.int
+
+
+{-| -}
+posixCodec : Codec Posix
+posixCodec =
+    Codec.build encodePosix posixDecoder
 
 
 {-| -}

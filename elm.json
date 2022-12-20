@@ -3,7 +3,7 @@
     "name": "MackeyRMS/time-util",
     "summary": "Utilities we use to format times / dates wraps Time.Extra and other funzies.",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "exposed-modules": [
         "TimeUtil"
     ],
@@ -15,6 +15,7 @@
         "elm-explorations/test": "1.2.2 <= v < 2.0.0",
         "ianmackenzie/elm-units": "2.9.0 <= v < 3.0.0",
         "justinmimbs/time-extra": "1.1.1 <= v < 2.0.0",
+        "miniBill/elm-codec": "2.0.0 <= v < 3.0.0",
         "thaterikperson/elm-strftime": "2.0.2 <= v < 3.0.0"
     },
     "test-dependencies": {
